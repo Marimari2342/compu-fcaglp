@@ -1,0 +1,335 @@
+﻿def palindroma(palabra):
+  long=len(palabra)
+  for i in range(int(long/2)):
+    if (palabra[i]!=palabra[long-1-i]):
+      return False
+  return True
+
+
+def anagrama_particular(palabra1,palabra2):
+  long1=len(palabra1)
+  long2=len(palabra2)
+  if (long1!=long2):
+    return False
+  else:
+    for i in range(long1):
+      if (palabra1[i]!=palabra2[long2-1-i]):
+        return False
+  return True
+
+
+L=["raza", "pato", "las", "reconocer", "lamina", "caso", "amor", "salas", "los", "somos", "roma", "molino", "acurruca", "familia", "sal", "historia", "animal", "palabra", "oso", "radar", "nido", "sometemos", "narciso", "arenera", "odin", "sol", "futuro", "sus", "rotomotor","nubes", "azar"]
+
+
+Lpalin=[]
+Lresto=[]
+longL=len(L)
+for i in range(longL):
+  if (palindroma(L[i])):
+    Lpalin.append(L[i])
+  else:
+    Lresto.append(L[i])
+print("Lista de palindromas=",Lpalin)
+print("Lista complementaria=",Lresto)
+
+
+n=0
+longLr=len(Lresto)
+for i in range(longLr-1):
+  for j in range(i+1,longLr):
+    if(anagrama_particular(Lresto[i],Lresto[j])):
+      n=n+1
+      print(Lresto[i],"-",Lresto[j])
+print("Cantidad de anagramas=",n)
+
+
+
+
+……………….
+
+
+
+
+PROGRAM EJ1
+      IMPLICIT NONE
+      INTEGER NMAX, NNMAX, K, N, I, J
+      PARAMETER (NMAX = 100, NNMAX = 10)
+      REAL X(NMAX), Y(NMAX), A(NNMAX,NNMAX)
+      REAL X0, CORTE, H
+      REAL F1, F2
+      CHARACTER*20 NOMSAL
+      EXTERNAL F1, F2
+
+
+ 20   FORMAT(A)
+ 21   FORMAT(F4.1,2X,F8.4)
+ 22   FORMAT(10(F8.4,2X))
+ 23   FORMAT("N es ", I2, " y la matriz A es:")
+      WRITE(*,*) "Ingrese el nombre del archivo de salida:"
+      READ(*,*) NOMSAL
+      OPEN(10, FILE = NOMSAL)
+      
+C     Para la primera funciÃ³n."
+      WRITE(10,20) "Para la primera funciÃ³n:"
+      X0 = 0.0
+      CORTE = 17.0
+      H = 0.2
+      CALL EVALUACION (F1, NMAX, X0, CORTE, H, X, Y, K)
+      N = INT(SQRT(REAL(K)))
+      IF (SQRT(REAL(K)) - N .NE. 0.0) THEN
+         WRITE(10,20) "  x     F(x)"
+         DO I = 1, K
+            WRITE(10,21) X(I), Y(I)
+         ENDDO
+      ELSE
+         CALL MATRIZ(Y, NMAX, NNMAX, N, A)
+         WRITE(10,23) N
+         DO I = 1, N
+            WRITE(10,22) (A(I,J), J = 1, N)
+         ENDDO
+      ENDIF
+      
+      WRITE(10,20)
+      
+C     Para la segunda funciÃ³n."
+      WRITE(10,20) "Para la segunda funciÃ³n:"
+      X0 = 0.0
+      CORTE = 20.2
+      H = 0.2
+      CALL EVALUACION (F2, NMAX, X0, CORTE, H, X, Y, K)
+      N = INT(SQRT(REAL(K)))
+      IF (SQRT(REAL(K)) - N .NE. 0.0) THEN
+         WRITE(10,20) "  x     F(x)"
+         DO I = 1, K
+            WRITE(10,21) X(I), Y(I)
+         ENDDO
+      ELSE
+         CALL MATRIZ(Y, NMAX, NNMAX, N, A)
+         WRITE(20,23) N
+         DO I = 1, N
+            WRITE(10,22) (A(I,J), J = 1, N)
+         ENDDO
+      ENDIF
+      CLOSE(10)
+      END
+
+
+C------------------------------------------------------------------------
+      SUBROUTINE EVALUACION (F, NMAX, X0, CORTE, H, X, Y, K)
+      IMPLICIT NONE
+      INTEGER NMAX, NNMAX, K 
+      REAL X(NMAX), Y(NMAX)
+      REAL X0, CORTE, H
+      REAL F, EVAL
+      K = 0
+      EVAL = 0.0
+      DO WHILE (EVAL .LT. CORTE)
+         K = K + 1
+         X(K) = X0 + (K-1) * H
+         Y(K) = F(X(K))
+         EVAL = Y(K)
+      ENDDO
+      K = K - 1
+      RETURN
+      END
+      
+C------------------------------------------------------------------------
+      SUBROUTINE MATRIZ(Y, NMAX, NNMAX, N, A)
+      IMPLICIT NONE
+      INTEGER NMAX, NNMAX, K, N, I, J
+      REAL Y(NMAX), A(NNMAX,NNMAX)
+      K = 1
+      DO I = 1, N
+         DO J = 1, N
+            A(I,J) = Y(K)
+            K = K + 1
+         ENDDO
+      ENDDO
+      RETURN
+      END
+
+
+C------------------------------------------------------------------------
+      REAL FUNCTION F1(X)
+      IMPLICIT NONE
+      REAL X
+      F1 = X * SIN(X) + 2 * X - 2
+      RETURN
+      END
+
+
+C------------------------------------------------------------------------
+      REAL FUNCTION F2(X)
+      IMPLICIT NONE
+      REAL X
+      F2 = 0.2 * EXP(COS(3*X) + 2) + 0.4 * X**2
+      RETURN
+      END
+
+
+
+
+
+
+     
+……………
+
+
+
+
+PROGRAM TEMPERATURAS
+      IMPLICIT NONE
+      INTEGER N, M, NMAX, I, J
+      PARAMETER (NMAX = 9)
+      REAL A(NMAX,NMAX), AP(NMAX,NMAX), AR(NMAX,NMAX)
+      REAL PROM, RAIZ
+      CHARACTER*20 NOMENT
+      EXTERNAL PROM, RAIZ
+ 20   FORMAT(7X,I1,3X,I1)
+ 21   FORMAT(9(F7.4,2X))
+      WRITE(*,*) "Ingresar el nombre del archivo con la matriz"
+      READ(*,*) NOMENT
+      OPEN(10, FILE = NOMENT)
+      OPEN(11, FILE = "Temperaturas.sal")
+      READ(10,20) N, M
+      DO I = 1, N
+         READ(10,*) (A(I,J), J = 1, M)
+      ENDDO
+      DO I = 1, N
+         DO J = 1, M
+            AP(I,J) = A(I,J)
+            AR(I,J) = A(I,J)
+         ENDDO
+      ENDDO
+      CALL COMPLETA(PROM, AP, NMAX, N, M)
+      CALL COMPLETA(RAIZ, AR, NMAX, N, M)
+      WRITE(11,*) "Completado con el promedio."
+      DO I = 1, N
+         WRITE(11,21) (AP(I,J), J = 1, M)
+      ENDDO
+      WRITE(11,*)
+      WRITE(11,*) "Completado usando la raÃ­z cuarta."
+      DO I = 1, N
+         WRITE(11,21) (AR(I,J), J = 1, M)
+      ENDDO
+      CLOSE(10)
+      CLOSE(11)
+      END
+      
+
+
+      REAL FUNCTION PROM(X, Y, Z, W)
+      REAL X, Y, Z, W
+      PROM = (X + Y + Z + W) / 4
+      RETURN
+      END
+      
+
+
+      REAL FUNCTION RAIZ(X, Y, Z, W)
+      REAL X, Y, Z, W
+      RAIZ = (X * Y * Z * W)**0.25
+      RETURN
+      END
+
+
+
+
+      SUBROUTINE COMPLETA(F, T, NMAX, N, M)
+      IMPLICIT NONE
+      INTEGER  N, M, NMAX, I, J
+      REAL T(NMAX,NMAX), F
+      DO I = 1, N
+         DO J = 1, M
+            IF (T(I,J) .LT. 0.0) THEN
+               T(I,J) = F(T(I,J-1), T(I,J+1), T(I-1,J), T(I+1,J))
+            ENDIF
+         ENDDO
+      ENDDO
+      RETURN
+      END
+     
+……………
+
+
+import math
+
+
+def cambio_unid_terrestre_cgs(masa, radio):
+  return masa*5.972e+27,radio*6.378e+8
+
+
+def densidad_planeta(lmasa, lradio):
+  densidad=[]
+  for i in range(len(lmasa)):
+    if(lmasa[i]!=99999.0 and lradio[i]!=99999.0):
+      m_p,r_p=cambio_unid_terrestre_cgs(lmasa[i], lradio[i])
+      densidad.append(m_p/(4/3*math.pi*r_p**3))
+    else:
+      densidad.append(99999.0)
+  return densidad
+
+
+def valores_extremos(lista):
+  maximo=lista[0]
+  minimo=lista[0]
+  ind_max=0
+  ind_min=0
+  for i in range(len(lista)):
+    if (lista[i]>maximo and lista[i]!=99999.0):
+      maximo=lista[i]
+      ind_max=i
+    if (lista[i]<minimo):
+      minimo=lista[i]
+      ind_min=i
+  return maximo,ind_max,minimo,ind_min
+
+
+nombre_planeta=[]
+unidades=[]
+nro_estrellas=[]
+nro_planetas=[]
+met_descub=[]
+Porb_planeta=[]
+a_planeta=[]
+r_planeta=[]
+m_planeta=[]
+distancia=[]
+
+
+try:
+  with open("Planetas-extrasolares-en-sistemas-estelares-multiples.txt", "r") as archivo:
+    next(archivo)
+    for linea in archivo:
+      datos=linea.split()
+      nombre_planeta.append(datos[0])
+      nro_estrellas.append(int(datos[1]))
+      nro_planetas.append(int(datos[2]))
+      met_descub.append(datos[3])
+      Porb_planeta.append(float(datos[4]))
+      a_planeta.append(float(datos[5]))
+      r_planeta.append(float(datos[6]))
+      m_planeta.append(float(datos[7]))
+      distancia.append(float(datos[8]))
+except FileNotFoundError:
+  print("El archivo no existe")
+
+
+dens_planeta=densidad_planeta(m_planeta, r_planeta)
+print("Planeta      Densidad [gr/cmÂ³]")
+for i in range(len(dens_planeta)):
+   print(f"{nombre_planeta[i]:19}{dens_planeta[i]:.3f}")
+
+
+v_max_Porb,ind_max_Porb,v_min_Porb,ind_min_Porb=valores_extremos(Porb_planeta)
+print(f"Planeta con mayor periodo orbital: {nombre_planeta[ind_max_Porb]}, Periodo orbital: {v_max_Porb} dÃ­as.")
+print(f"El mÃ©todo de descubrimiento fue: {met_descub[ind_max_Porb]}.")
+print(f"Planeta con menor periodo orbital: {nombre_planeta[ind_min_Porb]}, Periodo orbital: {v_min_Porb} dÃ­as.")
+print(f"El mÃ©todo de descubrimiento fue: {met_descub[ind_min_Porb]}.")
+
+
+v_max_a,ind_max_a,v_min_a,ind_min_a=valores_extremos(a_planeta)
+print(f"Planeta con mayor semieje mayor: {nombre_planeta[ind_max_a]}, Semieje mayor: {v_max_a} UA.")
+print(f"El mÃ©todo de descubrimiento fue: {met_descub[ind_max_a]}.")
+print(f"Planeta con menor semieje mayor: {nombre_planeta[ind_min_a]}, Semieje mayor: {v_min_a} UA.")
+print(f"El mÃ©todo de descubrimiento fue: {met_descub[ind_min_a]}.")

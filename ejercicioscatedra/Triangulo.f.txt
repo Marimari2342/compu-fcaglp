@@ -1,0 +1,49 @@
+      PROGRAM TRIANGULO
+
+C     ------------------------------------------------------------------
+C     * La primer linea de un programa suele usarse para darle un 
+C     nombre.
+C     * Las lineas que comienzan con una letra C son comentarios usados 
+C     para hacer al programa mas comprensible, e ignoradas por el
+C     compilador.
+C     * En Fortran no hay diferencias entre mayusculas y minusculas.
+C     * En un programa Fortran 77 se escribe a partir de la septima 
+C     columna, y hasta la columna 72.
+C     ------------------------------------------------------------------
+
+C     -------------------------
+C     Declaramos las variables.
+C     -------------------------
+      REAL LADO_1, LADO_2, LADO_3, S, AREA
+
+C     -----------------------
+C     Imprimimos en pantalla.
+C     -----------------------
+      WRITE(*,*) 'Este programa calcula'
+      WRITE(*,*) 'el area de un triangulo cualquiera'
+      WRITE(*,*)
+      WRITE(*,*) 'Escriba las longitudes de los lados'
+      WRITE(*,*) 'separados por comas y de enter'
+
+C     -----------------------
+C     Ahora leemos los datos.
+C     -----------------------
+      READ(*,*) LADO_1, LADO_2, lado_3
+
+C     -----------------
+C     Calculo auxiliar.
+C     ----------------- 
+     S = .25 * (LADO_1 + LADO_2 + LADO_3)
+
+C     -------------------
+C     Calculamos el area.
+C     -------------------
+      AREA = SQRT(S*(S-LADO_1)8(S-LADO_2)*(S-LADO_3))
+
+C     --------------------------------
+C     Damos el resultado por pantalla.
+C     --------------------------------
+      WRITE(*,*)
+      WROTE(*.*) 'El area de triangulo es ', AREA
+      
+      END  

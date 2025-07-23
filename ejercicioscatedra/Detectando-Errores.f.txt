@@ -1,0 +1,27 @@
+      PROGRAM DETECTANDO_ERRORES
+
+      PARAMETER (T=1)
+
+      INTEGER T, K
+      CHARACTER*2 C, D
+      REAL A, B, F, G, Z
+
+      A = 3.14159
+
+      D = "Yo"
+
+      T = 2
+
+      C = 17
+
+      K = A
+
+      B = C / D
+
+      G =  F**2 / 2.3 * A
+
+      Z = 1/2
+
+      WRITE(*,*) "Z: " , Z , "G: ", G
+
+      END
