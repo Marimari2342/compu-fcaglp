@@ -96,11 +96,42 @@ ls // marimari2342 (mi usuario)
 ## 🔴 Ejercicio 07 
 ***Copiar el archivo de la práctica 1 en el mismo directorio pero bajo el nombre Copia.pdf. Copiar el archivo de la práctica 1 al directorio Computacion. Mover el archivo de la práctica 1 al directorio Practica-01. Moverse por los directorios viendo el contenido de cada uno de ellos. Borrar los archivos Copia.pdf y Computacion-01.pdf en el directorio Computacion.***
 
+<details><summary> <code> click para ver resolución 🖱 </code></summary>
+
+* Comandos:
+
+~~~
+cd marimari2342/Descargas/Computacion/practica01
+ls
+cp Computacion-01.pdf Copia.pdf
+ls
+mv Copia.pdf ../Computacion
+cd ..
+rm Copia.pdf
+~~~
+
+</details>
+
 ## 🔴 Ejercicio 08 
 ***Inspeccionar las hojas de manual de los comandos vistos hasta aquí, sus opciones y argumentos.***
 
 ## 🔴 Ejercicio 09 
 ***Cambiar el permiso de lectura para el usuario del archivo Computacion-01.pdf y tratar de abrirlo. Devolver los permisos originales al mencionado archivo.***
+
+<details><summary> <code> click para ver resolución 🖱 </code></summary>
+
+* Comandos:
+
+~~~
+cd practica01
+ls -l // me muestra los permisos del archivo dentro de este directorio --> -rw-rw-r--
+chmod u-r Computacion-01.pdf
+ls -l // ya no tiene permiso de lectura --> --w-rw-r--
+xpdf Computacion-01.pdf & // MENSAJE --> I/O Error: Couldn't open file 'Computacion-01.pdf': Permiso denegado.
+chmod u+r Computacion-01.pdf // devuelvo los permisos originales
+~~~
+
+</details>
 
 ## 🔴 Ejercicio 10 
 ***Editar un archivo con emacs en donde se listen los primeros 10 números naturales. Investigar el menú del editor. Luego cerrarlo y quitarle el permiso de escritura. Volver a abrir el archivo y tratar de modificarlo. Cerrar el archivo y devolver los permisos originales al mencionado archivo.***
@@ -121,3 +152,4 @@ ls // marimari2342 (mi usuario)
 
 
 <p><img align="center" src="https://github.com/Marimari2342/Marimari2342/blob/main/firmagith.png" alt="marigit"/></p>
+
