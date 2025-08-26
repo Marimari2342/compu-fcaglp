@@ -136,8 +136,54 @@ chmod u+r Computacion-01.pdf // devuelvo los permisos originales
 ## 🔴 Ejercicio 10 
 ***Editar un archivo con emacs en donde se listen los primeros 10 números naturales. Investigar el menú del editor. Luego cerrarlo y quitarle el permiso de escritura. Volver a abrir el archivo y tratar de modificarlo. Cerrar el archivo y devolver los permisos originales al mencionado archivo.***
 
+<details><summary> <code> click para ver resolución 🖱 </code></summary>
+
+* Comandos:
+
+~~~
+cd Descargas/compu-fcaglp/practicas/practica01
+emacs numeros.txt
+chmod u-w numeros.txt
+ls -l // para visualizar los permisos
+emacs numeros.txt // abro y no puedo editar
+chmod u+w numeros.txt
+ls -l
+emacs numeros.txt // ahora puedo volver a editar 
+~~~
+
+* Para instalar emacs
+
+~~~
+sudo snap install emacs --classic
+~~~
+
+</details>
+
 ## 🔴 Ejercicio 11 
 ***Agrupar todos los archivos contenidos en el directorio principal, en un archivo tar. Comprimir este último archivo y moverlo a otro directorio. Descomprimir el archivo tar en este otro directorio, y comprobar que se hayan recuperado los archivos.***
+
+<details><summary> <code> click para ver resolución 🖱 </code></summary>
+
+* Comandos:
+
+~~~
+// voy a agrupar los archivos de un directorio que llamo Computacion y pegarlo en Computacion2
+mkdir Computacion2 // creo un segundo directorio
+cd Computacion
+tar -cvf archivo.tar * // agrupar en un .tar
+gzip archivo.tar // comprimir 
+ls
+mv archivo.tar ../Computacion2 // mover al otro directorio
+ls
+cd ..
+cd Computacion2
+ls // me aseguro que se movio el archivo
+gunzip archivo.tar.gz // descomprimir
+tar -xvf archivo.tar // desagrupar
+ls -l // me aseguro que esta todo lo que habia comprimido
+~~~
+
+</details>
 
 ## 🔴 Ejercicio 12
 ***Conectarse remotamente a su cuenta pero en otra computadora de la sala mediante el comando ssh. Comprobar que el contenido de ambas computadoras es el mismo. En la computadora a la que se encuentra conectado remotamente, tratar de abrir el enunciado de esta práctica. Desconectarse y volver a conectarse pero usando esta vez el modificador -X o -Y (ssh -X usuario@......), y tratar de abrir nuevamente el enunciado de la práctica.***
