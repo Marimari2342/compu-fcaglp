@@ -1,0 +1,5 @@
+      PROGRAM CALENDA
+      CHARACTER(len=10)::fecha 
+      CALL DATE_AND_TIME(DATE=fecha)
+      WRITE(*,*) "La fecha actual es: ",fecha
+      END
