@@ -1,0 +1,34 @@
+      PROGRAM CICLOFOR
+C     Vamos a ver como funcionan los for
+      DO I=25,25
+         WRITE(*,*) "a)",I
+      ENDDO
+      DO I=4,1
+         WRITE(*,*) "b)",I
+      ENDDO
+      DO I=1,10,-1
+         WRITE(*,*) "c)",I
+      ENDDO
+      DO I=1,-10,-2
+         WRITE(*,*) "d)",I
+      ENDDO
+      DO I=1.6,4.8
+         WRITE(*,*) "e)",I
+      ENDDO
+      DO A=1.6,4.8
+         WRITE(*,*) "f)",A
+      ENDDO
+      DO A=1.6,4.8,1.6
+         WRITE(*,*) "g)",A
+      ENDDO
+      DO A=0.3,1.5,0.3
+         WRITE(*,*) "h)",A
+      ENDDO
+      DO A=1.,6.
+         WRITE(*,*) "i)",A
+      ENDDO
+      DO A=1.E0,1.E4,1.E1
+         WRITE(*,*) "j)",A
+      ENDDO
+      END PROGRAM
+      

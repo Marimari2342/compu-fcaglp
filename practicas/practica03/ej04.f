@@ -1,0 +1,14 @@
+      PROGRAM SUMATORIAS
+C     Tengo que calcular una sumatoria dada
+      INTEGER N, TOTAL
+      WRITE(*,*) "Ingrese el valor para N"
+      READ(*,*) N
+      TOTAL=0
+      DO I=1,N
+         DO J=I,N
+            TOTAL=TOTAL+((-1)**(I+J))*(I+J)
+            WRITE(*,*) TOTAL
+         ENDDO
+      ENDDO
+      WRITE(*,*) "Resultado para N: ",N," = ",TOTAL
+      END PROGRAM
