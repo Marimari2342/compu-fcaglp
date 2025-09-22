@@ -1,0 +1,20 @@
+      PROGRAM RAICES
+      
+C     variables
+      REAL DISCR, X1, X2, A, B, C
+      COMPLEX XC1,XC2, CDISCR
+      
+C     pedido de datos
+      WRITE(*,*) "Por favor, ingrese los valores A, B y C 
+     &separados por comas"
+      READ(*,*) A,B,C
+      
+C     calculo del discriminante
+      DISCR = (B**2)-(4*A*C)
+      IF (DISCR.LT.0.0) THEN
+         CDISCR = CMPLX(DISCR,0.0)
+         XC1 = (-B + CDISCR**(1./2))/(2.*A)
+         XC2 = (-B - CDISCR**(1./2))/(2.*A)
+         WRITE(*,*) "Las raices son: ",XC1, " y ", XC2
+      END IF
+      END PROGRAM

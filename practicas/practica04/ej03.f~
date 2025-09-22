@@ -1,0 +1,19 @@
+      PROGRAM ESFERA
+      
+C     declaracion de variables
+      REAL X,Y,Z,R
+
+C     pedido de datos
+      WRITE(*,*) "Ingrese el radio de la esfera"
+      READ(*,*) R
+      WRITE(*,*) "Ingrese las coordenadas X, Y, Z, separadas por comas"
+      READ(*,*) X,Y,Z
+
+C     calculo
+      IF (X.LE.R.OR.Y.LE.R.OR.Z.LE.R) THEN
+         WRITE(*,*)"El punto se encuentra dentro de la esfera"
+      ELSE
+         WRITE(*,*)"El puntose encuentra fuera de la esfera"
+      END IF
+      
+      END PROGRAM

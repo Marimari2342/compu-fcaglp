@@ -1,0 +1,31 @@
+      PROGRAM TRIANGULOS
+C     declaracion de variables
+      LOGICAL TRIAN, EQUIL, ISOS, ESC
+      REAL X,Y,Z
+C     pedido de datos
+      WRITE(*,*) "Ingrese una tripla de numeros reales X,Y,Z"
+      READ(*,*) X,Y,Z
+      TRIAN=.FALSE.
+      
+C     calculo y muestra de resultados
+      IF (((X+Y).GT.Z).AND.((X+Z).GT.Y).AND.((Y+Z).GT.X)) THEN
+         TRIAN = .TRUE.
+         EQUIL=.FALSE.
+         ISOS=.FALSE.
+         ESC=.FALSE.
+         IF (X.EQ.Y.AND.X.EQ.Z) THEN
+            EQUIL=.TRUE.
+         ELSE IF (X.NE.Y.AND.X.NE.Z.AND.Y.NE.Z) THEN
+            ESC=.TRUE.
+         ELSE
+            ISOS=.TRUE.
+         END IF
+         WRITE(*,*) "TRIANGULO ES: ",TRIAN
+         WRITE(*,*) "EQUILATERO ES: ",EQUIL
+         WRITE(*,*) "ISOSELES ES: ",ISOS
+         WRITE(*,*) "ESCALENO ES: ",ESC
+      ELSE
+         WRITE(*,*) "TRIANGULO ES: ",TRIAN
+      END IF
+      
+      END PROGRAM
