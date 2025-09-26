@@ -8,13 +8,13 @@
     
 * En una PC PERSONAL usar (te pide ingresar la contraseña actual y luego la nueva contraseña).
 
-~~~
+~~~bash
 passwd
 ~~~
 
 * En la una PC DE UNA RED EDUCATIVA (como la de la facu) usar
 
-~~~
+~~~bash
 yppasswd
 ~~~
 
@@ -30,7 +30,7 @@ yppasswd
     
 * Comandos:
 
-~~~
+~~~bash
 cd /Descargas/compu-fcaglp/practicas
 ls -l 
 xpdf Computacion-01.pdf &
@@ -38,7 +38,7 @@ xpdf Computacion-01.pdf &
 
 * Si tengo que instalar **xpdf**
 
-~~~
+~~~bash
 sudo apt install xpdf
 ~~~
 
@@ -51,13 +51,13 @@ sudo apt install xpdf
     
 * Comandos:
 
-~~~
-ls -l // lista los directorios y archivos que tengo en la carpeta actual
+~~~bash
+ls -l #lista los directorios y archivos que tengo en la carpeta actual
 cd Descargas
 mkdir Computacion
 mkdir Practica01
-pdw // me da la direccion de la carpeta en donde estoy parada
-cd .. // vuelvo para atras
+pdw #me da la direccion de la carpeta en donde estoy parada
+cd .. #vuelvo para atras
 ~~~
 
 </details>
@@ -69,10 +69,10 @@ cd .. // vuelvo para atras
 
 * Comandos:
 
-~~~
+~~~bash
 cd Descargas/Computacion/Practica01
-cd // vuelvo al directorio de inicio
-pwd // /home/marimari2342
+cd #vuelvo al directorio de inicio
+pwd #/home/marimari2342
 ~~~
 
 </details>
@@ -85,10 +85,10 @@ pwd // /home/marimari2342
 
 * Comandos:
 
-~~~
-cd .. // sube al /home
-pwd // /home
-ls // marimari2342 (mi usuario)
+~~~bash
+cd .. #sube al /home
+pwd #/home
+ls #marimari2342 (mi usuario)
 ~~~
 
 </details>
@@ -100,7 +100,7 @@ ls // marimari2342 (mi usuario)
 
 * Comandos:
 
-~~~
+~~~bash
 cd marimari2342/Descargas/Computacion/practica01
 ls
 cp Computacion-01.pdf Copia.pdf
@@ -122,13 +122,13 @@ rm Copia.pdf
 
 * Comandos:
 
-~~~
+~~~bash
 cd practica01
-ls -l // me muestra los permisos del archivo dentro de este directorio --> -rw-rw-r--
+ls -l #me muestra los permisos del archivo dentro de este directorio --> -rw-rw-r--
 chmod u-r Computacion-01.pdf
-ls -l // ya no tiene permiso de lectura --> --w-rw-r--
-xpdf Computacion-01.pdf & // MENSAJE --> I/O Error: Couldn't open file 'Computacion-01.pdf': Permiso denegado.
-chmod u+r Computacion-01.pdf // devuelvo los permisos originales
+ls -l #ya no tiene permiso de lectura --> --w-rw-r--
+xpdf Computacion-01.pdf & #MENSAJE --> I/O Error: Couldn't open file 'Computacion-01.pdf': Permiso denegado.
+chmod u+r Computacion-01.pdf #devuelvo los permisos originales
 ~~~
 
 </details>
@@ -140,20 +140,20 @@ chmod u+r Computacion-01.pdf // devuelvo los permisos originales
 
 * Comandos:
 
-~~~
+~~~bash
 cd Descargas/compu-fcaglp/practicas/practica01
 emacs numeros.txt
 chmod u-w numeros.txt
-ls -l // para visualizar los permisos
-emacs numeros.txt // abro y no puedo editar
+ls -l #para visualizar los permisos
+emacs numeros.txt #abro y no puedo editar
 chmod u+w numeros.txt
 ls -l
-emacs numeros.txt // ahora puedo volver a editar 
+emacs numeros.txt #ahora puedo volver a editar 
 ~~~
 
 * Para instalar emacs
 
-~~~
+~~~bash
 sudo snap install emacs --classic
 ~~~
 
@@ -166,21 +166,21 @@ sudo snap install emacs --classic
 
 * Comandos:
 
-~~~
-// voy a agrupar los archivos de un directorio que llamo Computacion y pegarlo en Computacion2
-mkdir Computacion2 // creo un segundo directorio
+~~~bash
+#voy a agrupar los archivos de un directorio que llamo Computacion y pegarlo en Computacion2
+mkdir Computacion2 #creo un segundo directorio
 cd Computacion
-tar -cvf archivo.tar * // agrupar en un .tar
-gzip archivo.tar // comprimir 
+tar -cvf archivo.tar * #agrupar en un .tar
+gzip archivo.tar #comprimir 
 ls
-mv archivo.tar ../Computacion2 // mover al otro directorio
+mv archivo.tar ../Computacion2 #mover al otro directorio
 ls
 cd ..
 cd Computacion2
-ls // me aseguro que se movio el archivo
-gunzip archivo.tar.gz // descomprimir
-tar -xvf archivo.tar // desagrupar
-ls -l // me aseguro que esta todo lo que habia comprimido
+ls #me aseguro que se movio el archivo
+gunzip archivo.tar.gz #descomprimir
+tar -xvf archivo.tar #desagrupar
+ls -l #me aseguro que esta todo lo que habia comprimido
 ~~~
 
 </details>
@@ -198,4 +198,3 @@ ls -l // me aseguro que esta todo lo que habia comprimido
 
 
 <p><img align="center" src="https://github.com/Marimari2342/Marimari2342/blob/main/firmagith.png" alt="marigit"/></p>
-
