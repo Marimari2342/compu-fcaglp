@@ -1,0 +1,29 @@
+      PROGRAM MATRICES
+      
+C     Declaracion de variables
+      REAL A(100,100), B(100,100), C(100,100)
+      INTEGER AFILA,ACOL,BFILA,BCOL
+
+C     Pedido de datos
+      WRITE(*,*) "Ingrese las dimensiones de las matrices"
+      READ(*,*) AFILA,ACOL,BFILA,BCOL
+C     el número de columnas de A es igual al número de filas de B
+      IF (ACOL.EQ.BFIL) THEN
+         DO I=1,AFILA
+            DO J=1,BCOL
+               C(I,J)=0
+               DO K=1,ACOL
+                  C(I,J)=C(I,J)+A(I,K)*B(K,J)
+               ENDDO
+            ENDDO
+         ENDDO
+         PRINT (*,*) "Matriz resultante"
+         DO I=1,AFILA
+            DO J=1,BCOL
+              WRITE(*,*) C(I,J)
+            ENDDO
+         ENDDO
+      ELSE
+         WRITE(*,*)"ERROR. N°col de A debe ser igual al N° filas de B."
+      ENDIF
+      END PROGRAM

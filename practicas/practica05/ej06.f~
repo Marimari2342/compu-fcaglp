@@ -1,0 +1,25 @@
+      PROGRAM ARREGLOPALABRAS
+      
+C     Declaracion de variables
+      PARAMETER INTEGER DIM=12
+      CHARACTER*10 VECTR(DIM)
+      INTEGER CANT,TOT
+ 
+C     Ingreso de datos
+      DO I=1,DIM
+         WRITE(*,*) " Ingrese la palabra ",I," con maximo 10 caracteres"
+         READ(*,*) VECTR(I)
+      ENDDO
+      TOT=0
+      WRITE(*,100) "Palabra","Cant. Letras"
+      DO I=1,DIM
+         CANT=INDEX(VECTR(I)," ")
+         IF (CANT.EQ.4) THEN
+            TOT=TOT+1
+         ENDIF
+         WRITE(*,101)VECTR(I),CANT
+      ENDDO
+      WRITE(*,*) "Numero de palabras con cuatro letras: ",TOT
+ 100  FORMAT (A10,3X,A12)
+ 101  FORMAT (A10,3X,I2)
+      END PROGRAM
