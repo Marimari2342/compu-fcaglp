@@ -1,0 +1,21 @@
+      PROGRAM PUNTOS
+C     declaracion de variables
+      INTEGER TOTAL
+      
+C     abrir archivo
+      OPEN(UNIT=10,FILE="P03-Puntos.dat.txt",ERR=15)
+      
+C     resolucion del ejercicio
+      TOTAL=0
+      DO
+         READ(10,*,END=200) 
+         TOTAL=TOTAL+1
+      ENDDO
+      WRITE(*,*) "La cantidad total de puntos es: ",TOTAL
+      
+ 15   WRITE(*,*) "Error al leer el archivo."
+      
+C     cierre de archivo
+ 200  CLOSE(10)
+      
+      END PROGRAM

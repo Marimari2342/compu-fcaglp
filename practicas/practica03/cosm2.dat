@@ -1,0 +1,6 @@
+ Calculo de valor aproximando de cos(x).
+ x         cos(x)
+ 0.00      1.00
+ 0.50      0.98
+ 1.00      0.92
+ 1.50      0.85

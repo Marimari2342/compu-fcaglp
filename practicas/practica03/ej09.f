@@ -1,0 +1,37 @@
+      PROGRAM COSENOCALCULO
+C     declaracion de variables
+      REAL X,SUM,TERM
+      INTEGER M
+      CHARACTER*20 ARCHIVO
+      
+C     pedido de datos al usuario
+      WRITE(*,*) "Ingrese el valor de M:"
+      READ(*,*) M
+      WRITE(*,*) "Ingrese el nombre del archivo destino:"
+      READ(*,*) ARCHIVO
+      
+C     abrir archivo
+      OPEN(UNIT=10,FILE=ARCHIVO)
+
+C     desarrollo del ejercicio
+      WRITE(10,*) "Calculo de valor aproximando de cos(x)."
+      WRITE(10,"(1X,A1,9X,A6)") "x","cos(x)"
+      DO I=0,15,5
+         SUM=0
+         TERM=1
+         SUM=SUM+TERM
+         X=I/10.
+         DO J=1,M
+            TERM = -TERM*X**2/(2.*M*(2.*M-1))
+            SUM = SUM+TERM
+         ENDDO
+         WRITE(10,100)X,SUM
+      ENDDO
+      
+ 100  FORMAT (F5.2,5X,F5.2)
+      WRITE(*,*) "Archivo creado correctamente."
+      CLOSE(10)
+C     cerrar archivo
+      END PROGRAM
+
+      

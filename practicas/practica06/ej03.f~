@@ -1,0 +1,14 @@
+      PROGRAM ROTACIONPLANO
+C     declaracion de variables
+      REAL X1,X2,Y1,Y2,THETA
+C     funciones sentencia
+      X2(X1,Y1,THETA)=X1*COS(THETA)+Y1*SIN(THETA)
+      Y2(X1,Y1,THETA)=-X1*SIN(THETA)+Y1*COS(THETA)
+C     pedido de datos al usuario
+      WRITE(*,*) "Ingrese las coordenadas (x,y) separadas por comas"
+      READ(*,*) X1,Y1
+      WRITE(*,*) "Ingrese el angulo de rotacion"
+      READ(*,*)THETA
+C     resultado
+      WRITE(*,*) "El resultado es: (",X2,","Y2,")."
+      END PROGRAM
