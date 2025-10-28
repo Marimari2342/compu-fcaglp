@@ -1,0 +1,30 @@
+C     el problema esta en que si ya declare la matriz en el programa
+C     no puedo luego cambiarle la dimension en la funcion
+      PROGRAM MATRIZ
+C     declaracion de variables
+      INTEGER N
+      REAL A(20,20), TRAZA, TR
+C     abrimos el archivo de la matriz
+      OPEN(UNIT=10, FILE='P06-Matriz.dat')
+      N = 4
+C     leemos la matriz
+      DO I = 1, N
+         READ(10,'(4(F4.1,1X))') (A(I,J), J=1,N)
+      ENDDO
+C     llamo la funcion
+      TRAZA = TR(A,20,N)
+C     resultado
+      WRITE(*,*)"La traza de la matriz es: ", TRAZA
+      CLOSE(10)
+      END PROGRAM
+      
+C     declaro la funcion 
+      REAL FUNCTION TR(A, NP, N)
+      REAL A(NP,NP)
+      INTEGER N, J, NP
+      TR = 0.
+      DO J = 1, N
+         TR = TR + A(J,J)
+      ENDDO
+      RETURN
+      END
