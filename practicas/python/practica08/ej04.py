@@ -1,0 +1,34 @@
+# Cargamos la lista inicial
+lista = ["rojo", "verde", "blanco", "negro", "rojo"]
+
+# a) Imprimir el primero y el último elemento
+print("a) Primer elemento: ", lista[0], "| Último elemento: ", lista[-1])
+
+# b) Agregar un elemento más (violeta) e imprimir la lista
+lista.append("violeta")
+print("b) Lista con nuevo elemento: ")
+print(lista)
+
+# c) Modificar el primer elemento e imprimir la lista
+lista[0] = "amarillo"
+print("c) Lista después de modificar el primer elemento:")
+print(lista)
+
+# d) Borrar el elemento "violeta" e imprimir la lista
+lista.remove("violeta")
+print("d) Lista después de borrar 'violeta':")
+print(lista)
+
+# e) Imprimir cuántos elementos tiene la lista
+print("e) Cantidad de elementos:", len(lista))
+
+# f) Construir una lista de 5 elementos y agregarla como un elemento más
+nueva = [1, 2, 3, 4, 5]
+lista.append(nueva)
+print("f) Lista nueva:")
+print(lista)
+
+# g) Imprimir los elementos impares de la lista (pos 1,3 ...)
+print("g) Elementos en posiciones impares:")
+for i in range(1, len(lista), 2):
+    print(lista[i])

@@ -1,0 +1,9 @@
+#desempaquetado de tuplas
+#ingreso los puntos x y z
+aux = input("ingrese los puntos x,y,z separados por comas: ")
+t = tuple(map(float,aux.split(',')))
+#desempaquetado
+x,y,z = t
+print("x: ",x)
+print("y: ",y)
+print("z: ",z)

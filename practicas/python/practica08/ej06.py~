@@ -1,0 +1,5 @@
+#creo una lista
+l = ["pipi","adolfa","eleonora"]
+#la convierto a tupla
+t = tuple(l)
+print(t)

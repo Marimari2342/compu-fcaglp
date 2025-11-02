@@ -1,0 +1,9 @@
+# Pedido de datos
+nombre = input("Ingrese el nombre del archivo incluyendo su extension: ")
+
+# Buscamos la extension
+if '.' in nombre:
+    ext = nombre.rsplit('.', 1)[1]  # Separa desde el último punto
+    print("Extensión del archivo:", ext)
+else:
+    print("ERROR: Extensión no indicada.")
